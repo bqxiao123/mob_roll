@@ -14,5 +14,7 @@ def fill_date(x):
     return x[0:inx[0]]+x[inx[0]+1:inx[1]].rjust(2,"0")+x[inx[1]+1:].rjust(2,"0")
 
 df["dt"] = df.recorddate.apply(fill_date)
+df["借款成功日期"] = df.借款成功日期.apply(fill_date)
+# df["om"] = df["借款成功日期"].str.slice(0, 6)
 df.to_csv("data/data_stdz.csv")
 
